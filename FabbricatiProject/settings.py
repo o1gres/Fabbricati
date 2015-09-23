@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+#import for nwe admin interface
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -31,13 +34,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    #new graphic interface for admin
+    #'suit',
+    #standard apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fabbricati'
+    'fabbricati',
+    'bootstrap_toolkit',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +75,12 @@ TEMPLATES = [
         },
     },
 ]
+
+
+#add for new admin interface
+#TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+#    'django.core.context_processors.request',
+#)
 
 WSGI_APPLICATION = 'FabbricatiProject.wsgi.application'
 
@@ -103,5 +116,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
+    os.path.join(BASE_DIR,  'fabbricati/templates'),
+)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'fabbricati/static'),
 )

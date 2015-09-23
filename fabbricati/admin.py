@@ -1,10 +1,22 @@
 from django.contrib import admin
-from .models import Ubicazione,ElementiCatastali,RiferimentiTemporali,RiferimentiYuppies,CaratteristicheTecniche,\
-                    DatiMetrici
+from django.db import models
+from .models import Fabbricato, Ubicazioni, ElementiCatastali, RiferimentiTemporali, RiferimentiYuppies, \
+                    CaratteristicheTecniche, DatiMetrici
+
+
 
 
 # Register your models here.
-admin.site.register(Ubicazione)
+
+
+# class FabbricatoAdmin(admin.ModelAdmin):
+#     list_display = ('Nome', 'Complesso_Forestale','UGB', 'Comune', 'Localita',)
+#     list_filter = ('Nome', 'Complesso_Forestale', 'Comune', 'Localita')
+#     search_fields = ('Nome', 'Complesso_Forestale')
+#     ordering = ('Nome',)
+
+admin.site.register(Fabbricato)
+admin.site.register(Ubicazioni)
 admin.site.register(ElementiCatastali)
 admin.site.register(RiferimentiTemporali)
 admin.site.register(RiferimentiYuppies)
