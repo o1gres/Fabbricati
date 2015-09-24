@@ -18,29 +18,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-2">
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Ubicazione</button>
-                    <button type="button" class="btn btn-default">Elementi Catastali</button>
-                    <button type="button" class="btn btn-default">Riferimenti Temporali</button>
-                    <button type="button" class="btn btn-default">Riferimenti Yuppies</button>
-                    <button type="button" class="btn btn-default">Caratteristiche Tecniche</button>
-                    <button type="button" class="btn btn-default">Dati Metrici</button>
-                    <button type="button" class="btn btn-default">Altri Elementi Costruttivi</button>
-                    <button type="button" class="btn btn-default">Riferimenti Yuppies</button>
-
-                </div>
-        </div>
-
-
-        <!-- CONTENT -->
-        <div class="col-lg-10 col-md-10 col-sm-10">
+             <!-- CONTENT -->
+        <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="bs-example" data-example-id="table-within-panel">
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Panel heading</div>
+                    <div class="panel-heading">Fabbricati</div>
                     <div class="panel-body">
-                        <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p>Elenco fabbricati.</p>
                     </div>
 
                     <!-- Table -->
@@ -49,29 +34,26 @@
                         <tr>
                             <th>#</th>
                             <th>Nome</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Numero fabbricato</th>
+                            <th>U.G.B.</th>
+                            <th>Comune</th>
+                             <th>Località</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>{{ fabbricati.0.Nome }}</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+
+                        {% for fabbricato in fabbricati %}
+
+                        <tr id="{{ fabbricato.id  }}" class="riga" style="cursor: pointer;">
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ fabbricato.Nome}}</td>
+                            <td>{{ fabbricato.Ubicazione.Numero_Fabbricato }}</td>
+                            <td>{{ fabbricato.Ubicazione.UGB }}</td>
+                            <td>{{ fabbricato.Ubicazione.Comune }}</td>
+                            <td>{{ fabbricato.Ubicazione.Localita }}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -90,4 +72,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Custon javascript -->
+<script src="/static/js/common.js"></script>
 </html>
