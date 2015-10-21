@@ -9,6 +9,7 @@ __author__ = 'sergio'
 urlpatterns = patterns('fabbricati.views',
                        url(r'^$', 'index', name='index'),
                        url(r'^fabbricato/(?P<id_fab>\w+)$', 'fabbricato', name='fabbricato'),
+                       url(r'^ubicazione/(?P<id_fab>\w+)$', 'ubicazione', name='ubicazione'),
                        )
 
 #debug

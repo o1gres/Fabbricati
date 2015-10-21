@@ -1,3 +1,4 @@
+{% load bootstrap_toolkit %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -36,40 +37,29 @@
             <div class="bs-example" data-example-id="table-within-panel">
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">{{ fabbricato.Nome }}</div>
+                    <div class="panel-heading">Ubicazione{{ fabbricato.Nome }}</div>
                     <div class="panel-body">
                         <p>Dettaglio Fabbricato <bold>{{ fabbricato.Nome }}</bold></p>
                     </div>
 
                     <!-- Table -->
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nome</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>pippo</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <form action="/your-name/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <table class="table">
+                              <tbody>
+                                {{ form.as_table }}
+                              </tbody>
+                        </table>
+
+                        <input type="button" value="Submit" />
+                    </form>
                 </div>
             </div>
 
         </div>
     </div>
 </div>
-<form enctype="multipart/form-data">
-    {{ form.as_table }}
-</form>
-
 </body>
 
 

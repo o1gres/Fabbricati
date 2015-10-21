@@ -15,12 +15,12 @@ class Ubicazioni(models.Model):
     Localita = models.CharField(max_length=30, unique=True,)
     #Aggiungere campo destinazione come hiave estera di una tabella destinazioni
 
-    def __unicode__(self):
-        return self.Numero_Fabbricato
+    # def __unicode__(self):
+    #     return self.Numero_Fabbricato
 
-    class Meta:
-        verbose_name = "Ubicazione"
-        verbose_name_plural = "Ubicazioni"
+    # class Meta:
+    #     verbose_name = "Ubicazioni"
+    #     verbose_name_plural = "Ubicazioni"
 
 
 class ElementiCatastali(models.Model):
@@ -196,11 +196,11 @@ class Fabbricato(models.Model):
 
 
 
-    def __unicode__(self):
-        return self.Nome
-
-
-    class Meta:
-        verbose_name = "Fabbricato"
-        verbose_name_plural = "Fabbricati"
+    # def __unicode__(self):
+    #     return self.Nome
+    #
+    #
+    # class Meta:
+    #     verbose_name = "Fabbricato"
+    #     verbose_name_plural = "Fabbricati"
 

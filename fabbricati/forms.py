@@ -1,9 +1,18 @@
 __author__ = 'sergio'
 from django import forms
-from fabbricati.models import Fabbricato
+from django.forms import ModelForm
+from fabbricati.models import Fabbricato, Ubicazioni
 
 
-# class Fabbricato(forms.ModelForm):
+# class UbicazioneForm(forms.ModelForm):
+#
+#     class Meta:
+#         model = Ubicazioni
+#         exclude = ('Numero_Fabbricato',)
+
+
+
+# class FabbricatoForm(forms.ModelForm):
 #
 #     class Meta:
 #         model = Fabbricato
