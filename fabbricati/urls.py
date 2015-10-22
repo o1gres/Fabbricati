@@ -10,6 +10,9 @@ urlpatterns = patterns('fabbricati.views',
                        url(r'^$', 'index', name='index'),
                        url(r'^fabbricato/(?P<id_fab>\w+)$', 'fabbricato', name='fabbricato'),
                        url(r'^ubicazione/(?P<id_fab>\w+)$', 'ubicazione', name='ubicazione'),
+                       url(r'^elementi_catastali/(?P<id_fab>\w+)$', 'elementi_catastali', name='elementi_catastali'),
+                       url(r'^riferimenti_temporali/(?P<id_fab>\w+)$', 'riferimenti_temporali', name='riferimenti_temporali'),
+                       url(r'^riferimentiyuppies/(?P<id_fab>\w+)$', 'riferimentiyuppies', name='riferimentiyuppies'),
                        )
 
 #debug
