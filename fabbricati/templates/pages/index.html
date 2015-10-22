@@ -1,4 +1,5 @@
 {% load bootstrap_toolkit %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -7,10 +8,10 @@
 
     {#    Import bootstrap  #}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap.min.css"%}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap-theme.min.css"%}">
 
 </head>
 <body>
@@ -23,7 +24,13 @@
             <div class="bs-example" data-example-id="table-within-panel">
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Fabbricati</div>
+                    <div class="panel-heading">
+                        <span>Fabbricati</span>
+                        <a href="admin/fabbricati/fabbricato/add/" target="_blank">
+                             <button type="button" class="btn btn-primary btn-sm" style=" position: absolute; top: 2%; right: 5%;">Aggiungi fabbricato</button>
+                        </a>
+
+                    </div>
                     <div class="panel-body">
                         <p>Elenco fabbricati.</p>
                     </div>

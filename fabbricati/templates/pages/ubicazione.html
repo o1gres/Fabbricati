@@ -1,4 +1,5 @@
 {% load bootstrap_toolkit %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -7,10 +8,10 @@
 
     {#    Import bootstrap  #}
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap.min.css"%}">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap-theme.min.css"%}">
 
 </head>
 <body>
@@ -20,13 +21,14 @@
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2">
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default"><a href="/ubicazione/{{ fabbricato.id }}"> Ubicazione </a></button>
-                    <button type="button" class="btn btn-default"><a href="/elementicatastali/{{ fabbricato.id }}"> Elementi Catastali </a></button>
-                    <button type="button" class="btn btn-default"><a href="/riferimentitemporali/{{ fabbricato.id }}"> Riferimenti Temporali </a></button>
-                    <button type="button" class="btn btn-default"><a href="/riferimentiyuppies/{{ fabbricato.id }}"> Riferimenti Yuppies </a></button>
-                    <button type="button" class="btn btn-default"><a href="/caratteristichetecniche/{{ fabbricato.id }}"> Caratteristiche Tecniche </a></button>
-                    <button type="button" class="btn btn-default"><a href="/datimetrici/{{ fabbricato.id }}"> Dati Metrici </a></button>
-                    <button type="button" class="btn btn-default"><a href="/altrielementicostruttivi/{{ fabbricato.id }}"> Altri Elementi Costruttivi </a></button>
+                    <a href="/" type="button" class="btn btn-default">Home</a>
+                    <a href="/ubicazione/{{ fabbricato.id }}" type="button" class="btn btn-default">Ubicazione</a>
+                    <a href="/elementi_catastali/{{ fabbricato.id }}" type="button" class="btn btn-default"> Elementi Catastali </a>
+                    <a href="/riferimenti_temporali/{{ fabbricato.id }}" type="button" class="btn btn-default"> Riferimenti Temporali </a>
+                    <a href="/riferimentiyuppies/{{ fabbricato.id }}" type="button" class="btn btn-default"> Riferimenti Yuppies </a>
+                    <a href="/caratteristichetecniche/{{ fabbricato.id }}" type="button" class="btn btn-default"> Caratteristiche Tecniche </a>
+                    <a href="/datimetrici/{{ fabbricato.id }}" type="button" class="btn btn-default"> Dati Metrici </a>
+                    <a href="/altrielementicostruttivi/{{ fabbricato.id }}" type="button" class="btn btn-default"> Altri Elementi Costruttivi </a>
 
                 </div>
         </div>
@@ -43,7 +45,7 @@
                     </div>
 
                     <!-- Table -->
-                    <form action="/your-name/" method="post" enctype="multipart/form-data">
+                    <form action="/ubicazione/{{ ubicazione_id }}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
 
                         <table class="table">
@@ -52,7 +54,7 @@
                               </tbody>
                         </table>
 
-                        <input type="button" value="Submit" />
+                        <input type="submit" value="submit" />
                     </form>
                 </div>
             </div>
