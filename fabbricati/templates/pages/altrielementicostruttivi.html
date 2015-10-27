@@ -1,0 +1,75 @@
+{% load bootstrap_toolkit %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    {#    Import bootstrap  #}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap.min.css"%}">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="{% static "bootstrap/3.3.5/css/bootstrap-theme.min.css"%}">
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <a href="/" type="button" class="btn btn-default">Home</a>
+                    <a href="/ubicazione/{{ fabbricato.id }}" type="button" class="btn btn-default">Ubicazione</a>
+                    <a href="/elementi_catastali/{{ fabbricato.id }}" type="button" class="btn btn-default"> Elementi Catastali </a>
+                    <a href="/riferimenti_temporali/{{ fabbricato.id }}" type="button" class="btn btn-default"> Riferimenti Temporali </a>
+                    <a href="/riferimentiyuppies/{{ fabbricato.id }}" type="button" class="btn btn-default"> Riferimenti Yuppies </a>
+                    <a href="/caratteristichetecniche/{{ fabbricato.id }}" type="button" class="btn btn-default"> Caratteristiche Tecniche </a>
+                    <a href="/datimetrici/{{ fabbricato.id }}" type="button" class="btn btn-default"> Dati Metrici </a>
+                    <a href="/altrielementicostruttivi/{{ fabbricato.id }}" type="button" class="btn btn-default"> Altri Elementi Costruttivi </a>
+
+                </div>
+        </div>
+
+
+        <!-- CONTENT -->
+        <div class="col-lg-10 col-md-10 col-sm-10">
+            <div class="bs-example" data-example-id="table-within-panel">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Caratteristiche tecniche{{ fabbricato.Nome }}</div>
+                    <div class="panel-body">
+                        <p>Altri Elementi Costruttivi<bold>{{ fabbricato.Nome }}</bold></p>
+                    </div>
+
+                    <!-- Table -->
+                    <form action="/altrielementicostruttivi/{{ altri_elem_id }}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <table class="table">
+                              <tbody>
+                                {{ form.as_table }}
+                              </tbody>
+                        </table>
+
+                        <input type="submit" value="submit" />
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+<!-- jQuery 2.0.2 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</html>

@@ -13,6 +13,9 @@ urlpatterns = patterns('fabbricati.views',
                        url(r'^elementi_catastali/(?P<id_fab>\w+)$', 'elementi_catastali', name='elementi_catastali'),
                        url(r'^riferimenti_temporali/(?P<id_fab>\w+)$', 'riferimenti_temporali', name='riferimenti_temporali'),
                        url(r'^riferimentiyuppies/(?P<id_fab>\w+)$', 'riferimentiyuppies', name='riferimentiyuppies'),
+                       url(r'^caratteristichetecniche/(?P<id_fab>\w+)$', 'caratteristichetecniche', name='caratteristichetecniche'),
+                       url(r'^datimetrici/(?P<id_fab>\w+)$', 'datimetrici', name='datimetrici'),
+                       url(r'^altrielementicostruttivi/(?P<id_fab>\w+)$', 'altrielementicostruttivi', name='altrielementicostruttivi'),
                        )
 
 #debug
