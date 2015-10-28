@@ -1,4 +1,8 @@
+from django.contrib.auth.decorators import login_required
+
+
 from django.shortcuts import render, render_to_response
+from fabbricati.decorator import active_and_login_required
 from django.template.context import RequestContext
 from fabbricati.models import Ubicazioni, Fabbricato, ElementiCatastali, RiferimentiTemporali, RiferimentiYuppies, \
     CaratteristicheTecniche, DatiMetrici, AltriElementiCostruttivi
@@ -12,6 +16,7 @@ from django.http import HttpResponseRedirect
 
 
 # Create your views here.
+@login_required
 def index(request):
 
         fabbricati = Fabbricato.objects.all()
@@ -21,6 +26,7 @@ def index(request):
         return render_to_response('pages/index.html',context_instance=ctx)
 
 
+@login_required
 def fabbricato(request,id_fab):
 
     class FabbricatoForm(ModelForm):
@@ -42,6 +48,7 @@ class UbicazioneForm(ModelForm):
         fields = ['Numero_Fabbricato', 'Complesso_Forestale', 'UGB', 'Comune', 'Localita']
 
 
+@login_required
 def ubicazione(request, id_fab):
     #
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -75,6 +82,7 @@ class ElementiCatastaliForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def elementi_catastali(request, id_fab):
     #
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -110,6 +118,7 @@ class RiferimentiTemporaliForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def riferimenti_temporali(request, id_fab):
     #
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -145,6 +154,7 @@ class RiferimentiYuppiesForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def riferimentiyuppies(request, id_fab):
     #
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -180,6 +190,7 @@ class CaratteristicheTecnicheForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def caratteristichetecniche(request, id_fab):
 
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -216,6 +227,7 @@ class DatiMetriciForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def datimetrici(request, id_fab):
 
     fabbricato = Fabbricato.objects.get(id=id_fab)
@@ -252,7 +264,9 @@ class AltriElementiCostruttiviForm(ModelForm):
         fields = '__all__'
 
 
+@login_required
 def altrielementicostruttivi(request, id_fab):
+
 
     fabbricato = Fabbricato.objects.get(id=id_fab)
     altri_elementi_costruttivi = AltriElementiCostruttivi.objects.get(id=fabbricato.AltriElementiCostruttivi.id)

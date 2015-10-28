@@ -122,3 +122,7 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'fabbricati/static'),
 )
+
+LOGIN_URL='/admin/login/'
+
+LOGIN_REDIRECT_URL='/accounts/profile/'

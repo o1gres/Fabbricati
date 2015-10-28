@@ -16,6 +16,7 @@ urlpatterns = patterns('fabbricati.views',
                        url(r'^caratteristichetecniche/(?P<id_fab>\w+)$', 'caratteristichetecniche', name='caratteristichetecniche'),
                        url(r'^datimetrici/(?P<id_fab>\w+)$', 'datimetrici', name='datimetrici'),
                        url(r'^altrielementicostruttivi/(?P<id_fab>\w+)$', 'altrielementicostruttivi', name='altrielementicostruttivi'),
+                       #url(r'^login/$', 'django.contrib.auth.views.login',name="my_login"),
                        )
 
 #debug
